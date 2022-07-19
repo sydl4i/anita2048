@@ -17,4 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createBoard()
 
+    //generate a number randomly
+    function generate() {
+        randomNumber = Math.floor(Math.random() * squares.length)
+        
+    }
+
 })
