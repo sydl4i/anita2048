@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDisplay = document.getElementById('result')
     const width = 4
     let squares = []
+    let score = 0
 
     //create a playing board
     function createBoard(){
@@ -14,8 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             squares.push(square)
         }
         generate()
-        generate()
-        
+        generate()        
     }
 
     createBoard()
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let randomNumber = Math.floor(Math.random() * squares.length)
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
+            checkForGameOver()
         } else generate()
     }
 
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[i].innerHTML = newColumn[0]
             squares[i+width].innerHTML = newColumn[1]
             squares[i+(width*2)].innerHTML = newColumn[2]
-            sqaures[i+(width*3)].innerHTML = newColumn[3]
+            squares[i+(width*3)].innerHTML = newColumn[3]
         }
     }
 
@@ -116,28 +117,34 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[i].innerHTML = newColumn[0]
             squares[i+width].innerHTML = newColumn[1]
             squares[i+(width*2)].innerHTML = newColumn[2]
-            sqaures[i+(width*3)].innerHTML = newColumn[3]
+            squares[i+(width*3)].innerHTML = newColumn[3]
         }
     }
 
     function combineRow() {
         for (let i=0; i < 15; i++) {
             if (squares[i].innerHTML === squares[i+1].innerHTML) {
-                let combineTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
-                squares[i].innerHTML = combineTotal
+                let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
+                squares[i].innerHTML = combinedTotal
                 squares[i+1].innerHTML = 0
+                score += combinedTotal
+                scoreDisplay.innerHTML = score
             }
         }
+        checkForWin()
     }
 
     function combineColumn() {
         for (let i=0; i < 12; i++) {
             if (squares[i].innerHTML === squares[i+width].innerHTML) {
-                let combineTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML)
-                squares[i].innerHTML = combineTotal
+                let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML)
+                squares[i].innerHTML = combinedTotal
                 squares[i+width].innerHTML = 0
+                score += combinedTotal
+                scoreDisplay.innerHTML = score
             }
         }
+        checkForWin()
     }
 
     //assign keycodes
@@ -180,6 +187,30 @@ document.addEventListener('DOMContentLoaded', () => {
         combineColumn()
         moveUp()
         generate()
+    }
+
+    //check for number 2048 in the squares to win
+    function checkForWin() {
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i].innerHTML == 2048) {
+                resultDisplay.innerHTML = 'You win!'
+                document.removeEventListener('keyup', control)
+            }
+        }
+    }
+
+    //check if there are no zeros on the board
+    function checkForGameOver() {
+        let zeros = 0
+        for (let i=0; i < squares.length; i++) {
+            if (squares[i].innerHTML == 0) {
+                zeros++
+            }
+        }
+        if (zeros === 0){
+            resultDisplay.innerHTML = 'You lose :('
+            document.removeEventListener('keyup', control)
+        }
     }
 
 })
