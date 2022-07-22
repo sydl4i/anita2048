@@ -1,3 +1,18 @@
+h1 {
+    color: cornflowerblue;
+}
+
+.score-container {
+    width: 1080px;
+    height: 150px;
+    display: inline-block;
+    border-color: black;
+    text-align:center;
+    vertical-align:middle;
+    justify-content:center;
+    align-items: center;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +24,7 @@
 .grid div {
     width: 100px;
     height: 100px;
-    background-color: yellow;
+    background-color: bisque;
     font-size: 60px;
     text-align: center;
     font-weight: bold;
