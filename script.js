@@ -1,3 +1,8 @@
+// questions to ask Josh
+// 1. how do i make the score box be a box and centered?
+// 2. how could i make anitas face pop up? i havent tried it yet though... 
+// 3. how could i make animations be there? im trying to replicate doge 2048 but with anitas
+
 document.addEventListener('DOMContentLoaded', () => {
     const gridDisplay = document.querySelector('.grid')
     const scoreDisplay = document.getElementById('score')
