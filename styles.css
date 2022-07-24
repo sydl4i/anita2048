@@ -2,21 +2,19 @@ h1 {
     color: cornflowerblue;
 }
 
+body > * {
+    margin: 50px auto;
+}
+
 .score-container {
-    width: 1080px;
-    height: 150px;
-    display: inline-block;
     border-color: black;
     text-align:center;
-    vertical-align:middle;
-    justify-content:center;
-    align-items: center;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
+    width: 408px;
     height: 400px;
     background-color: aquamarine;
 }
@@ -25,7 +23,9 @@ h1 {
     width: 100px;
     height: 100px;
     background-color: bisque;
+    border: 1px solid;
     font-size: 60px;
     text-align: center;
     font-weight: bold;
 }
+

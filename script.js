@@ -152,6 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForWin()
     }
 
+    //function picGenerate() {
+    //     for (let i=0; i < squares.length;i++){
+
+    //}
+    // }
+
     //assign keycodes
     function control(e) {
         if (e.keyCode === 39) {
@@ -171,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         combineRow()
         moveRight()
         generate()
+        console.log(squares)
     }
 
     function keyLeft() {
