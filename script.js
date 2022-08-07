@@ -1,8 +1,3 @@
-// questions to ask Josh
-// 1. how do i make the score box be a box and centered?
-// 2. how could i make anitas face pop up? i havent tried it yet though... 
-// 3. how could i make animations be there? im trying to replicate doge 2048 but with anitas
-
 document.addEventListener('DOMContentLoaded', () => {
     const gridDisplay = document.querySelector('.grid')
     const scoreDisplay = document.getElementById('score')
@@ -10,6 +5,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = 4
     let squares = []
     let score = 0
+    let timerId
+
+    //add anita images
+    function anitaGenerate(){
+        for (let i = 0; i < 16; i++) {
+            if (squares[i].innerHTML == 0){
+                squares[i].style.setProperty('background-image', 'url(pics/white.png)')
+            }
+            if (squares[i].innerHTML == 2){
+                squares[i].style.setProperty('background-image', 'url(pics/anita1.png)')
+            }
+            if (squares[i].innerHTML == 4){
+                squares[i].style.setProperty('background-image', 'url(pics/anita2.png)')
+            }
+            if (squares[i].innerHTML == 8){
+                squares[i].style.setProperty('background-image', 'url(pics/anita3.png)')
+            }
+            if (squares[i].innerHTML == 16){
+                squares[i].style.setProperty('background-image', 'url(pics/anita4.png)')
+            }
+            if (squares[i].innerHTML == 32){
+                squares[i].style.setProperty('background-image', 'url(pics/anita5.png)')
+            }
+            if (squares[i].innerHTML == 64){
+                squares[i].style.setProperty('background-image', 'url(pics/anita6.png)')
+            }
+            if (squares[i].innerHTML == 128){
+                squares[i].style.setProperty('background-image', 'url(pics/anita7.png)')
+            }
+            if (squares[i].innerHTML == 256){
+                squares[i].style.setProperty('background-image', 'url(pics/anita8.png)')
+            }
+            if (squares[i].innerHTML == 512){
+                squares[i].style.setProperty('background-image', 'url(pics/anita9.png)')
+            }
+            if (squares[i].innerHTML == 1024){
+                squares[i].style.setProperty('background-image', 'url(pics/anita10.png)')
+            }
+            if (squares[i].innerHTML == 2048){
+                squares[i].style.setProperty('background-image', 'url(pics/anita11.png)')
+            }
+        }
+    }
+
+    timerId = setInterval(anitaGenerate, 10)
 
     //create a playing board
     function createBoard(){
@@ -20,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             squares.push(square)
         }
         generate()
-        generate()        
+        generate()
+        anitaGenerate()        
     }
 
     createBoard()
@@ -177,7 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
         combineRow()
         moveRight()
         generate()
-        console.log(squares)
     }
 
     function keyLeft() {
