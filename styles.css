@@ -1,9 +1,17 @@
 h1 {
-    color: cornflowerblue;
+    text-align: center;
+    color: white;
+    font-family: "Comic Sans MS", sans-serif;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+h3 {
+    color:black;
+    font-family: "Comic Sans MS", sans-serif;
 }
 
 body > * {
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 .score-container {
